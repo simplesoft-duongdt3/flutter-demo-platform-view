@@ -11,7 +11,7 @@ import android.widget.TextView
 import io.flutter.plugin.platform.PlatformView
 
 internal class NativeView(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
-    private val rootView: View
+    private val rootView: LinearLayout
 
     override fun getView(): View {
         return rootView
@@ -21,11 +21,12 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
 
     init {
         rootView = LinearLayout(context)
-        val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
         layoutParams.gravity = Gravity.CENTER
         rootView.layoutParams = layoutParams
         rootView.orientation = LinearLayout.VERTICAL
         rootView.setBackgroundColor(Color.GREEN)
+        rootView.gravity = Gravity.CENTER
 
         val textView1 = TextView(context)
         textView1.textSize = 72f
